@@ -1,7 +1,7 @@
 from typing import Any
 
 import torch
-from transformers import T5Tokenizer
+from transformers import T5TokenizerFast as T5Tokenizer
 from transformers.data.data_collator import DataCollatorForSeq2Seq
 
 
