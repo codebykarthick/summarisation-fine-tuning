@@ -6,6 +6,7 @@ library_name: peft
 # Model Card for Model ID
 
 <!-- Provide a quick summary of what the model is/does. -->
+Small variant of the T5 model that has been fine-tuned on the CNN/Daily Mail dataset using LoRA.
 
 
 
@@ -17,43 +18,34 @@ library_name: peft
 
 
 
-- **Developed by:** [More Information Needed]
-- **Funded by [optional]:** [More Information Needed]
-- **Shared by [optional]:** [More Information Needed]
-- **Model type:** [More Information Needed]
-- **Language(s) (NLP):** [More Information Needed]
-- **License:** [More Information Needed]
-- **Finetuned from model [optional]:** [More Information Needed]
+- **Developed by:** Sri Hari Karthick
+- **Model type:** SequenceToSequence
+- **Language(s) (NLP):** English
+- **License:** MIT
+- **Finetuned from model [optional]:** T5-small
 
 ### Model Sources [optional]
 
 <!-- Provide the basic links for the model. -->
 
-- **Repository:** [More Information Needed]
-- **Paper [optional]:** [More Information Needed]
-- **Demo [optional]:** [More Information Needed]
+- **Repository:** https://github.com/codebykarthick/summarisation-fine-tuning
 
 ## Uses
 
 <!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
+For summarisation of internet body paragraphs, with a limit of 512 tokens and outputs a summary with a maximum length of 128 tokens.
 
 ### Direct Use
 
 <!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->
 
-[More Information Needed]
-
-### Downstream Use [optional]
-
-<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->
-
-[More Information Needed]
+Used for summarisation of text provided.
 
 ### Out-of-Scope Use
 
 <!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->
 
-[More Information Needed]
+May not capture all content accurately, primarily fine-tuned on English language.
 
 ## Bias, Risks, and Limitations
 
