@@ -38,26 +38,28 @@ def preprocess_function(instance) -> dict[str, Any]:
     Returns:
         dict[str, Any]: The processed input tokens for the input and output sequences.
     """
-    input_text = "summarize: " + instance["article"]
-    target_text = instance["highlights"]
+    inputs = ["summarize: " + article for article in instance["article"]]
+    target_texts = instance["highlights"]
 
     model_inputs = tokenizer(
-        input_text,
+        inputs,
         max_length=max_input_length,
         truncation=True,
         padding="max_length"
     )
 
     labels = tokenizer(
-        target_text,
+        target_texts,
         max_length=max_target_length,
         truncation=True,
         padding="max_length"
     ).input_ids
 
-    # Replace padding token in the labels by -100 so they're ignored by the loss
-    labels = [label if label !=
-              tokenizer.pad_token_id else -100 for label in labels]
+    # Replace padding token IDs in labels with -100
+    labels = [
+        [token if token != tokenizer.pad_token_id else -100 for token in label]
+        for label in labels
+    ]
     model_inputs["labels"] = labels
 
     return model_inputs
